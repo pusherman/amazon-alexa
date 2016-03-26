@@ -1,0 +1,11 @@
+{
+    "name": "pusherman/amazon-alexa",
+    "description": "Amazon Alexa library for validating and responding to Alexa Skills",
+    "authors": [
+        {
+            "name": "Corey Wilson",
+            "email": "corey@eastcodes.com"
+        }
+    ],
+    "require": {}
+}
