@@ -7,5 +7,24 @@
             "email": "corey@eastcodes.com"
         }
     ],
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "pusherman/amazon-alexa",
+                "version": "dev-master",
+                "source": {
+                    "url": "git@github.com:pusherman/amazon-alexa.git",
+                    "type": "git",
+                    "reference": "master"
+                },
+                "autoload": {
+                    "psr-0" : {
+                        "Eastcodes\\Alexa" : "src"
+                    }
+                }
+            }
+        }
+    ],
     "require": {}
 }
