@@ -19,10 +19,11 @@ class Request
    *
    * https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/developing-an-alexa-skill-as-a-web-service
    */
-  public function validate() {
+  public function validate($appId) {
     $chainURL = $_SERVER['HTTP_SIGNATURECERTCHAINURL'];
     
     $this->validatechainURL($chainURL)
+         ->validateAppId($appId)
          ->validateTimestamp();
     
     $this->certificate = (new Certificate())
@@ -54,6 +55,17 @@ class Request
   		throw new Exception("If the chain URL port is defined in the URL, it must be equal to 443");
     }
     
+    return $this;
+  }
+  
+  /**
+   * Validate the app id in the request
+   */
+  private function validateAppId($appId) {
+    if ($this->body->session->application->applicationId !== $appId) {
+      throw new Exception("Unknown application ID");
+    }
+
     return $this;
   }
 
