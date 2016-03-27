@@ -4,6 +4,7 @@ namespace Pusherman\Alexa;
 
 use Pusherman\Alexa\Certifcate;
 use DateTime;
+use Exception;
 
 class Request
 {
