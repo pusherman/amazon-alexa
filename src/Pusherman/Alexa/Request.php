@@ -94,11 +94,11 @@ class Request
   private function validateSignature() {
     $signature = $_SERVER['HTTP_SIGNATURE'];
     $publicKey = $this->certificate->getPublicKey();
-    
-    if (openssl_verify($this->bodyRaw, $signature, $publicKey) === false) {
+
+    if (openssl_verify($this->bodyRaw, base64_decode($signature), $publicKey) !== 1) {
       throw new Exception('Invalid request signature');
     }
-    
+
     return $this;
   }
 }
